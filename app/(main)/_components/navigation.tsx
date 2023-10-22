@@ -12,7 +12,7 @@ import {
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
 import {toast} from "sonner"
 import { cn } from "@/lib/utils";
 import { api } from "@/convex/_generated/api";
@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/popover";
 import { UserItem } from "./user-item";
 import { Item } from "./item";
+import { DocumentList } from "./document-list";
+import { TrashBox } from "./trash-box";
 
 
 export const Navigation = () => {
@@ -30,7 +32,6 @@ export const Navigation = () => {
   const params = useParams();
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const documents = useQuery(api.documents.get)
   const create = useMutation(api.documents.create)
 
   const isResizingRef = useRef(false);
@@ -154,17 +155,24 @@ export const Navigation = () => {
          
         </div>
         <div className="mt-4">
-          {documents?.map((document) => (
-            <p key={document.title}>{document.title}</p>
-          ))}
+       <DocumentList/>
+       <Item
+        onClick={handleCreate}
+        icon={Plus}
+        label="Add a Page"
+        />
+
+
           
           <Popover>
             <PopoverTrigger className="w-full mt-4">
+              <Item label="Trash" icon={Trash} />
             </PopoverTrigger>
             <PopoverContent
               className="p-0 w-72"
               side={isMobile ? "bottom" : "right"}
             >
+              <TrashBox/>
             </PopoverContent>
           </Popover>
         </div>

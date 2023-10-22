@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useConvexAuth } from "convex/react";
 import { Logo } from "./logo";
-import { ModeToggle } from "@/components/ui/mode-toggle";
+import { ModeToggle } from "@/components/mode-toggle";
 import { Spinner } from "@/components/spinner";
 
 export const Navbar = () => {
