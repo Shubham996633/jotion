@@ -40,7 +40,7 @@ export const Cover = ({
 
   return (
     <div className={cn(
-      "relative w-full h-[35vh] group",
+      "relative w-full h-[72vh] group dark:bg-transparent",
       !url && "h-[12vh]",
       url && "bg-muted"
     )}>
@@ -83,4 +83,3 @@ Cover.Skeleton = function CoverSkeleton() {
     <Skeleton className="w-full h-[12vh]" />
   )
 }
-// 6:47:42
