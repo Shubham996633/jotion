@@ -1,4 +1,5 @@
 import { Navbar } from "./_components/navbar";
+import NextTopLoader from "nextjs-toploader";
 
 const MarketingLayout = ({
   children
@@ -7,6 +8,7 @@ const MarketingLayout = ({
 }) => {
   return ( 
     <div className="h-full dark:bg-[#1F1F1F]">
+      <NextTopLoader/>
       <Navbar />
       <main className="h-full pt-40">
         {children}

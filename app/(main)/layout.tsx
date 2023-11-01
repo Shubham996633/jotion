@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 import { Spinner } from "@/components/spinner";
 import { SearchCommand } from "@/components/search-command";
+import NextTopLoader from "nextjs-toploader";
 
 import { Navigation } from "./_components/navigation";
 
@@ -29,6 +30,7 @@ const MainLayout = ({
 
   return ( 
     <div className="h-full flex dark:bg-[#1F1F1F]">
+      <NextTopLoader/>
       <Navigation />
       <main className="flex-1 h-full overflow-y-auto">
         <SearchCommand />
